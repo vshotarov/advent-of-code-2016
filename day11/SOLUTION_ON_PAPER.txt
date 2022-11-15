@@ -1,0 +1,120 @@
+#### Part 1 #################################
+
+Initial state
+  4
+  3 TM
+  2 TG  RG RM  CG CM
+E 1 SG SM  PG PM  
+
+First set of moves:
+
+ 1. PG PM move up 1 floor to floor 2
+ 2. TG RG move up 1 floor to floor 3
+ 3. RG moves down 1 floor to floor 2
+ 4. CM moves down 1 floor to floor 1
+ 5. SG SM move up 1 floor to floor 2
+
+State after move 5:
+
+  4
+  3 TM TG
+E 2 RG RM  CG  SG SM  PG PM
+  1 CM
+
+ 6. CG moves down 1 floor to floor 1
+ 7. CM CA move up 1 floor to floor 2
+ 8. RG RM move up 2 floors to floor 4
+ 9. ^
+10. RM moves down 2 floors to floor 2
+11. ^
+12. SG SM move up 2 floors to floor 4
+13. ^
+
+State after move 13:
+
+E 4 RG  SG SM
+  3 TM TG
+  2 RM  CG CM  PG PM  SM
+  1
+
+14. RG moves down 2 floors to floor 2
+15. ^
+16. PG PM move up 2 floors to floor 4
+17. ^
+18. SM moves down 2 floors to floor 2
+19.
+20. RM SM move up 2 floors to floor 4
+21. ^
+
+State after move 21:
+
+E 4 SG SM  PG PM  RM
+  3 TM TG
+  2 RG CG CM
+  1
+
+22. RM moves down 2 floors to floor 2
+23. ^
+24. CG CM move up 2 floors to floor 4
+25. ^
+26. SM moves down 2 floors to floor 2
+27. ^
+28. RG RM move up 2 floors to floor 4
+29.
+30. SG moves down 2 floors to floor 4
+31. ^
+32. SG SM move up 1 floor to floor 3
+
+State after move 32:
+
+  4 PG PM  CG CM  RG RM
+  3 TG TM  SG SM
+  2
+  1
+
+33. SG SM move up 1 floor to floor 4
+34. PM moves down 1 floor to floor 3
+35. TG TM move up 1 floor to floor 4
+36. PG moves down 1 floor to floor 3
+37. PG PM move up 1 floor to floor 4
+
+State after 37:
+
+E 4 PG PM  CG CM  RG RM  TG TM  SG SM
+  3
+  2
+  1
+
+#############################################
+#                                           #
+#          Answer to part 1: 37             #
+#                                           #
+#############################################
+
+#### Part 2 #################################
+
+From 32. to 37. in Part 1 we are moving 2 combinations of chip and generator
+1 floor, so the cost of moving 2 combinations a distance of 1 floor is 5.
+
+Moving 3 floors then would be 3*5 = 15, hence moving the 2 new combinations of
+a generator and a chip from floor 1 to floor 4 costs 15 steps, no matter when
+in the chain of events it happens.
+
+So, assuming we do that at the end of part 1, after step 37 we are on floor 4.
+Going down 3 floors with any chip or generator (1) adds another 3 steps and after
+we've brought up the 2 new combinations we have to come back down with the
+corresponding partner of the chip/generator (1) we chose to go down with and come
+back the 3 steps.
+
+
+Steps for part 1: 37
+Steps to haul the 2 new combinations from floor 1 to floor 4: 15
+Steps to account for us being at floor 4 at the start of part 2: 3 + 3 + 3
+
+Total steps: 37 + 15 + 9 = 61
+
+#############################################
+#                                           #
+#          Answer to part 1: 61             #
+#                                           #
+#############################################
